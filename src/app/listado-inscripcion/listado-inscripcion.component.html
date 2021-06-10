@@ -1,0 +1,19 @@
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Client</th>
+            <th scope="col">Start date</th>
+            <th scope="col">End date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let inscripcion of inscripciones">
+            <th scope="row">{{inscripcion?.clienteObtenido.nombre}} {{inscripcion?.clienteObtenido.apellido}}</th>
+            <td>{{inscripcion?.fecha | date}}</td>
+            <td>{{inscripcion?.fechaFinal | date}}</td>
+            <td><button class="btn btn-danger" (click)="borrarSub(inscripcion)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+</div>

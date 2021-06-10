@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    
+    <h4>List of clients</h4>
+    
+    
+    
+    <div class="row">
+        <div class="col-sm-3" *ngFor="let cliente of clientes">
+            <div class="card" >
+                <img [src]="cliente.imgUrl" class="card-img-top imgCliente" >
+                <div class="card-body">
+                    <p>{{cliente.id}}</p>
+                    <h5 class="card-title">{{cliente.nombre}} {{cliente.apellido}}</h5>
+                    <a [routerLink]="['/agregar-clientes/', cliente.id]" class="card-link cursor">Edit</a>
+                    <a (click)="borrar(this.cliente.id)" class="card-link text-danger cursor">Delete</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>>

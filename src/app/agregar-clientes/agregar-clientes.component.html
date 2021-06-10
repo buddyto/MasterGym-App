@@ -1,0 +1,76 @@
+<div class="container mt-5">
+    <form [formGroup]="formularioCliente">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">Name</label>
+                    <input formControlName="nombre" type="text" class="form-control" placeholder="Enter the name">
+                    <div *ngIf="formularioCliente.controls['nombre'].invalid && formularioCliente.controls['nombre'].dirty" class="alert alert-danger" role="alert">
+                        <span *ngIf="formularioCliente.controls['nombre'].errors.required">Name is required</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">Lastname</label>
+                    <input type="text" formControlName="apellido" class="form-control" placeholder="Enter the lastname">
+                    <div *ngIf="formularioCliente.controls['apellido'].invalid && formularioCliente.controls['apellido'].dirty" class="alert alert-danger" role="alert">
+                        <span *ngIf="formularioCliente.controls['apellido'].errors.required">Lastname is required</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">E-mail</label>
+                    <input type="text" formControlName="correo" class="form-control" placeholder="Enter the e-mail">
+                    <div *ngIf="formularioCliente.controls['correo'].invalid && formularioCliente.controls['correo'].dirty" class="alert alert-danger" role="alert">
+                        <span *ngIf="formularioCliente.controls['correo'].errors.required">E-mail is required</span>
+                        <span *ngIf="formularioCliente.controls['correo'].errors.email">Not a valid e-mail</span>
+                       </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">Personal ID number</label>
+                    <input formControlName="dni" type="text" class="form-control" placeholder="Enter the ID">
+                    <div *ngIf="formularioCliente.controls['dni'].invalid && formularioCliente.controls['dni'].dirty" class="alert alert-danger" role="alert">
+                        <span *ngIf="formularioCliente.controls['dni'].errors.required">The ID is required</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">Birthday</label>
+                    <input formControlName="fechaNacimiento" type="date" class="form-control" placeholder="Enter the birthday">
+                    <div *ngIf="formularioCliente.controls['fechaNacimiento'].invalid && formularioCliente.controls['fechaNacimiento'].dirty" class="alert alert-danger" role="alert">
+                        <span *ngIf="formularioCliente.controls['fechaNacimiento'].errors.required">Birthday is required</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">Phone</label>
+                    <input formControlName="telefono" type="tel" class="form-control" placeholder="Enter the phone">
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="imagen">Image</label>
+                    <input formControlName="imgUrl" (change)="subirImagen($event)" type="file" class="form-control-file" id="imagen" placeholder="Enter the image">
+                    <div *ngIf="formularioCliente.controls['imgUrl'].invalid && formularioCliente.controls['imgUrl'].dirty" class="alert alert-danger" role="alert">
+                        <span *ngIf="formularioCliente.controls['imgUrl'].errors.required">The image is required</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <progressbar [value]="porcentajeSubida" type="danger" [striped]="true">{{porcentajeSubida}}</progressbar>
+            </div>
+
+            <div class="col-sm-12 mt-3">
+                <button *ngIf="!esEditable" class="btn btn-primary" [disabled]="formularioCliente.invalid" (click)="agregar()">Add</button>
+                <button *ngIf="esEditable" class="btn btn-primary" [disabled]="formularioCliente.invalid" (click)="editar()">Edit</button>
+            </div>
+            
+        </div>
+    </form>
+</div>

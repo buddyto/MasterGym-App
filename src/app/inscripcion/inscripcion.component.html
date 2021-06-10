@@ -1,0 +1,44 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-sm-6">
+            <app-seleccionar-cliente  (canceloCliente)="eliminarCliente()" (seleccionoCliente)="asignarCliente($event)"></app-seleccionar-cliente>
+            
+            <div class="mt-2">
+                <label>Price</label>
+                <select [(ngModel)]="idPrecio" (change)="seleccionarPrecio($event.target.value)" class="form-control">
+                    <option [value]="null">Select a sub</option>
+                    <option *ngFor="let precio of precios" [value]="precio.id" > {{precio.nombre}} </option>
+                </select>
+            </div>
+            <div>
+                <label for="">Start date</label>
+                <input class="form-control" [value]="inscripcion.fecha | date" type="text" disabled >
+            </div>
+            <div>
+                <label for="">End date</label>
+                <input class="form-control" [value]="inscripcion.fechaFinal | date" type="text" disabled >
+            </div>
+            <div>
+                <label for="">Subtotal</label>
+                <input class="form-control" [value]="inscripcion.subTotal" type="number" disabled >
+            </div>
+            <div>
+                <label for="">Tax (21%)</label>
+                <input class="form-control" [value]="inscripcion.iva" type="number" disabled >
+            </div>
+            <div>
+                <label for="">Total</label>
+                    <input class="form-control" [value]="inscripcion.total" type="number" disabled >
+            </div>
+
+            <button class="btn btn-primary mt-3" (click)="guardar()">Add sub</button>
+        
+        </div>
+        
+        <div class="col-sm-6">
+            <div *ngIf="clienteSeleccionado.imgUrl" class="imgCliente">
+                <img [src]="clienteSeleccionado.imgUrl">
+            </div>
+        </div>
+    </div>
+</div>
