@@ -1,4 +1,32 @@
 # Mastergym
+----THIS REPOSITORY WON'T WORK UNLESS YOU PUT YOUR FIREBASE CREDENTIALS----
+
+MasterGym App
+
+Link to the app (hosted on Google Firebase Hosting): https://mastergym-5fdb9.web.app/
+
+Features: 
+- App to manage clients, subscriptions, and prices of a gym.
+- Observables
+- Firestore database (Google firebase)
+- Activated routes
+- Custom services
+- Reactive forms
+- Protected routes
+- Firebase authentication
+- Custom models
+- Re-using components
+- Ngx-spinner services
+- Forms validators
+- Using events, inputs and outputs to transmit data between components
+
+Using
+- Angular 9
+- jQuery 3.5.1
+- Bootstrap 4.5
+- Popper.js 
+- Ngx-spinner
+- SweetAlert2
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.5.
 
